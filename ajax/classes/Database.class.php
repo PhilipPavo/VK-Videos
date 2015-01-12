@@ -3,13 +3,13 @@
         public $db;
         public function __construct(){
             try {
-                 $this-> db = new PDO(sprintf('mysql:host=%s; dbname=%s; port=3306', 'pavophilip.cloudapp.net', 'smarty-pages'), 'root', 'Ub3z4Wn3t');
+                 $this-> db = new PDO(sprintf('mysql:host=%s; dbname=%s; port=3306', 'pavophilip.cloudapp.net', ''), '', '');
             } catch (PDOException $e) {
                 die('Database connect error');
         	}
         }
         public function change_database($name){
-             $this-> db = new PDO(sprintf('mysql:host=%s; dbname=%s; port=3306', 'pavophilip.cloudapp.net', $name), 'root', 'Ub3z4Wn3t');
+             $this-> db = new PDO(sprintf('mysql:host=%s; dbname=%s; port=3306', 'pavophilip.cloudapp.net', $name), '', '');
         }
         public function insertUser($data){
             if($this->getRow('users', 'login', $data['login'])) return false;
